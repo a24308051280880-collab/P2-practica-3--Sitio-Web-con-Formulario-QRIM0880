@@ -1,7 +1,7 @@
 <?php
+session_start();
 include 'conexion.php';
 
-// Consulta todas las colecciones distintas
 $sql_colecciones = "SELECT DISTINCT coleccion FROM productos";
 $res_colecciones = $conexion->query($sql_colecciones);
 ?>
@@ -20,6 +20,7 @@ $res_colecciones = $conexion->query($sql_colecciones);
             <ul>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="colecciones.php" class="active">Colecciones</a></li>
+                <li><a href="carrito.php">Carrito</a></li>
                 <li><a href="cuenta.php">Cuenta</a></li>
             </ul>
         </nav>
@@ -53,7 +54,10 @@ $res_colecciones = $conexion->query($sql_colecciones);
                     echo '      <div>Velocidad del pedo: <span>' . htmlspecialchars($p['pedo']) . '</span></div>';
                     echo '      <div>Consistencia de flema: <span>' . htmlspecialchars($p['flema']) . '</span></div>';
                     echo '  </div>';
-                    echo '  <button class="btn-buy">Comprar</button>';
+                    echo '  <form action="agregar_carrito.php" method="POST" style="width:100%;">';
+                    echo '      <input type="hidden" name="id" value="' . $p['id'] . '">';
+                    echo '      <button type="submit" class="btn-buy" style="cursor:pointer;">Agregar al Carrito</button>';
+                    echo '  </form>';
                     echo '</div>';
                 }
                 echo '</div>';
