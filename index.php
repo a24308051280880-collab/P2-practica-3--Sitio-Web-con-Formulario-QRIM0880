@@ -1,0 +1,35 @@
+<?php
+include 'conexion.php';
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Fuggler Monsters</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">Fuggler</div>
+        <div class="tagline">Funny Ugly Monster</div>
+        <nav>
+            <ul>
+                <li><a href="index.php" class="active">Inicio</a></li>
+                <li><a href="colecciones.php">Colecciones</a></li>
+                <li><a href="cuenta.php">Cuenta</a></li>
+            </ul>
+        </nav>
+        <footer>
+            <p>Fuggler Monsters. / Quiñones Rios Iris 5-J</p>
+        </footer>
+    </aside>
+
+    <main class="main-content">
+        <h1 class="section-title">Bienvenido a Fuggler</h1>
+        
+        <div class="intro-box">
+            <p>Los Fugglers son monstruos graciosamente feos que te robarán el corazón y se apoderarán de tu vida con sus travesuras y su apariencia completamente disparatada. Cada Fuggler busca causar caos dondequiera que vaya… Puedes reconocer a estas criaturas espeluznantes por sus dientes parecidos a los humanos, ojos vacíos, comportamiento inquietante y distintivo <span class="highlight">BUTT-on agujero!</span></p>
+        </div>
+    </main>
+</body>
+</html>
