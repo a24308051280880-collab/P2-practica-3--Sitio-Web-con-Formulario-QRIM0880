@@ -14,8 +14,9 @@ include 'conexion.php';
         <div class="tagline">Funny Ugly Monster</div>
         <nav>
             <ul>
-                <li><a href="index.php" class="active">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="colecciones.php">Colecciones</a></li>
+                <li><a href="carrito.php">Carrito</a></li>
                 <li><a href="cuenta.php">Cuenta</a></li>
             </ul>
         </nav>
