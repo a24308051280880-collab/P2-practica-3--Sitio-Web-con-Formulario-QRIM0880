@@ -16,7 +16,8 @@ include 'conexion.php';
             <ul>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="colecciones.php">Colecciones</a></li>
-                <li><a href="cuenta.php" class="active">Cuenta</a></li>
+                <li><a href="carrito.php">Carrito</a></li>
+                <li><a href="cuenta.php">Cuenta</a></li>
             </ul>
         </nav>
         <footer>
