@@ -49,16 +49,73 @@ include 'conexion.php';
                 echo '  </div>';
                 echo '  <form action="eliminar_carrito.php" method="POST" style="width:100%;">';
                 echo '      <input type="hidden" name="id" value="' . $id . '">';
-                echo '      <button type="submit" class="btn-buy" style="background:#ff3300; color:#fff;">Eliminar</button>';
+                echo '      <button type="submit" class="btn-buy" style="background:#ff3300; color:#fff; cursor:pointer;">Eliminar</button>';
                 echo '  </form>';
                 echo '</div>';
             }
             echo '</div>';
-            echo '<form action="vaciar_carrito.php" method="POST">';
-            echo '  <button type="submit" class="btn-submit" style="max-width:200px;">Vaciar Carrito</button>';
-            echo '</form>';
+            ?>
+
+            <!-- SECCIÓN DE MÉTODO DE PAGO Y BOTÓN DE PAGAR -->
+            <div class="form-container" style="margin-top: 20px;">
+                <h2 style="font-family: Impact, sans-serif; color: #ffee00; margin-bottom: 15px; font-size: 1.8rem;">Finalizar Compra</h2>
+                <form action="procesar_pago.php" method="POST">
+                    <div class="form-group">
+                        <label for="metodo_pago">Selecciona tu Método de Pago:</label>
+                        <select id="metodo_pago" name="metodo_pago" required onchange="mostrarDetallesPago()">
+                            <option value="">-- Elige una opción --</option>
+                            <option value="Tarjeta de Crédito / Débito">Tarjeta de Crédito / Débito</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="Transferencia Bancaria">Transferencia Bancaria (SPEI)</option>
+                            <option value="Pago en OXXO">Pago en Efectivo (OXXO)</option>
+                        </select>
+                    </div>
+
+                    <!-- Campos adicionales dinámicos si elige tarjeta -->
+                    <div id="datos_tarjeta" style="display: none;">
+                        <div class="form-group">
+                            <label for="num_tarjeta">Número de Tarjeta:</label>
+                            <input type="text" id="num_tarjeta" name="num_tarjeta" placeholder="0000 0000 0000 0000" maxlength="19">
+                        </div>
+                        <div class="form-group" style="display: flex; gap: 10px;">
+                            <div style="flex: 1;">
+                                <label for="expiracion">Expiración:</label>
+                                <input type="text" id="expiracion" name="expiracion" placeholder="MM/AA" maxlength="5">
+                            </div>
+                            <div style="flex: 1;">
+                                <label for="cvv">CVV:</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit" style="background: #28a745; margin-bottom: 15px;">Pagar Ahora</button>
+                </form>
+
+                <form action="vaciar_carrito.php" method="POST">
+                    <button type="submit" class="btn-submit" style="background: #555; font-size: 1rem;">Vaciar Carrito</button>
+                </form>
+            </div>
+
+            <script>
+                function mostrarDetallesPago() {
+                    const metodo = document.getElementById('metodo_pago').value;
+                    const divTarjeta = document.getElementById('datos_tarjeta');
+                    const inputsTarjeta = divTarjeta.querySelectorAll('input');
+
+                    if (metodo === 'Tarjeta de Crédito / Débito') {
+                        divTarjeta.style.display = 'block';
+                        inputsTarjeta.forEach(input => input.required = true);
+                    } else {
+                        divTarjeta.style.display = 'none';
+                        inputsTarjeta.forEach(input => input.required = false);
+                    }
+                }
+            </script>
+
+        <?php
         } else {
-            echo '<div class="intro-box"><p>El carrito está vacío.</p></div>';
+            echo '<div class="intro-box"><p>El carrito está vacío. ¡Ve a <a href="colecciones.php" style="color:#ffee00;">Colecciones</a> para adoptar un Fuggler!</p></div>';
         }
         ?>
     </main>
