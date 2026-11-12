@@ -94,7 +94,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `direccion`, `estado`, `ciudad`, `fecha_registro`) VALUES
-(1, 'MIA MARINA ARZAPALA GUERRERO', 'a.24308051280795@cbtis128.edu.mx', 'XXX', 'Chihuahua', 'Juarez', '2026-11-06 03:22:23');
+
 
 --
 -- Indexes for dumped tables
